@@ -10,3 +10,12 @@ services:
     volumes:
       - .:/opt/geoserver
 
+  nginx:
+    image: nginx:1.15.8
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./html:/usr/share/nginx/html
+    
+    

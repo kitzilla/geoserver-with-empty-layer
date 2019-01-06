@@ -1,5 +1,6 @@
 <global>
   <settings>
+    <id>SettingsInfoImpl-4e9d2462:1680a7a6398:-8000</id>
     <contact>
       <id>contact</id>
     </contact>
@@ -7,6 +8,14 @@
     <numDecimals>4</numDecimals>
     <verbose>true</verbose>
     <verboseExceptions>false</verboseExceptions>
+    <metadata>
+      <map>
+        <entry>
+          <string>quietOnNotFound</string>
+          <boolean>false</boolean>
+        </entry>
+      </map>
+    </metadata>
     <localWorkspaceIncludesPrefix>false</localWorkspaceIncludesPrefix>
   </settings>
   <jai>
@@ -133,7 +142,7 @@
     <queueType>UNBOUNDED</queueType>
     <imageIOCacheThreshold>10240</imageIOCacheThreshold>
   </coverageAccess>
-  <updateSequence>15</updateSequence>
+  <updateSequence>18</updateSequence>
   <featureTypeCacheSize>0</featureTypeCacheSize>
   <globalServices>true</globalServices>
   <xmlPostRequestLogBufferSize>1024</xmlPostRequestLogBufferSize>

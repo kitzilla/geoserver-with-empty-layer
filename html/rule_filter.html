@@ -1,0 +1,242 @@
+<html>
+<body>
+<h2>Rule Filter</h2>
+<div>
+The following SLD gives various formats of numeric strings to both inline feature's property and 
+SLD's rule filter (&lt;ogc:PropertyIsGreaterThanOrEqualTo /&gt;).<br>
+It seems numeric strings are automatically cast into numbers in SLD filter rules.
+</div>
+<img id="img-preview" src="" style="border: solid 1px #999" /><br>
+<textarea id="ta-sld" style="width:100%; height: 600px">
+<ows:GetMap xmlns:ows="http://www.opengis.net/ows" xmlns:gml="http://www.opengis.net/gml" xmlns:ogc="http://www.opengis.net/ogc" version="1.1.1" service="WMS">
+  <sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" version="1.0.0">
+    <sld:UserLayer>
+      <sld:Name>inline</sld:Name>
+      <sld:InlineFeature>
+        <feature>
+          <geometryProperty>
+            <gml:Point  srsName="EPSG#3857">
+                <gml:coordinates>-80,90</gml:coordinates>
+            </gml:Point>
+          </geometryProperty>
+          <myNumber>-0.200001</myNumber>
+        </feature>
+        <feature>
+          <geometryProperty>
+            <gml:Point  srsName="EPSG#3857">
+                <gml:coordinates>-80,70</gml:coordinates>
+            </gml:Point>
+          </geometryProperty>
+          <myNumber>-2E-1</myNumber>
+        </feature>
+        <feature>
+          <geometryProperty>
+            <gml:Point  srsName="EPSG#3857">
+                <gml:coordinates>-80,50</gml:coordinates>
+            </gml:Point>
+          </geometryProperty>
+          <myNumber>-0.00000</myNumber>
+        </feature>
+        <feature>
+          <geometryProperty>
+            <gml:Point  srsName="EPSG#3857">
+                <gml:coordinates>-80,30</gml:coordinates>
+            </gml:Point>
+          </geometryProperty>
+          <myNumber>2e-2</myNumber>
+        </feature>
+        <feature>
+          <geometryProperty>
+            <gml:Point  srsName="EPSG#3857">
+                <gml:coordinates>-80,10</gml:coordinates>
+            </gml:Point>
+          </geometryProperty>
+          <myNumber>.0999999</myNumber>
+        </feature>
+        <feature>
+          <geometryProperty>
+            <gml:Point  srsName="EPSG#3857">
+                <gml:coordinates>-80,-10</gml:coordinates>
+            </gml:Point>
+          </geometryProperty>
+          <myNumber>.1</myNumber>
+        </feature>
+        <feature>
+          <geometryProperty>
+            <gml:Point  srsName="EPSG#3857">
+                <gml:coordinates>-80,-30</gml:coordinates>
+            </gml:Point>
+          </geometryProperty>
+          <myNumber>5</myNumber>
+        </feature>
+        <feature>
+          <geometryProperty>
+            <gml:Point  srsName="EPSG#3857">
+                <gml:coordinates>-80,-50</gml:coordinates>
+            </gml:Point>
+          </geometryProperty>
+          <myNumber>5.09999999999999</myNumber>
+        </feature>
+        <feature>
+          <geometryProperty>
+            <gml:Point  srsName="EPSG#3857">
+                <gml:coordinates>-80,-70</gml:coordinates>
+            </gml:Point>
+          </geometryProperty>
+          <myNumber>5.10000000000000</myNumber>
+        </feature>
+        <feature>
+          <geometryProperty>
+            <gml:Point  srsName="EPSG#3857">
+                <gml:coordinates>-80,-90</gml:coordinates>
+            </gml:Point>
+          </geometryProperty>
+          <myNumber>6</myNumber>
+        </feature>
+      </sld:InlineFeature>
+      <sld:UserStyle>
+        <sld:FeatureTypeStyle>
+          <sld:Rule>
+            <sld:PointSymbolizer>
+              <sld:Graphic>
+                <sld:Mark>
+                  <sld:Fill>
+                    <sld:CssParameter name="fill">#666666</sld:CssParameter>
+                  </sld:Fill>
+                </sld:Mark>
+              </sld:Graphic>
+            </sld:PointSymbolizer>
+          </sld:Rule>
+          <sld:Rule>
+            <ogc:Filter>
+              <ogc:PropertyIsGreaterThanOrEqualTo>
+                <ogc:PropertyName>myNumber</ogc:PropertyName>
+                <ogc:Literal>-.2</ogc:Literal>
+              </ogc:PropertyIsGreaterThanOrEqualTo>
+            </ogc:Filter>
+            <sld:PointSymbolizer>
+              <sld:Graphic>
+                <sld:Mark>
+                  <sld:Fill>
+                    <sld:CssParameter name="fill">#be41f4</sld:CssParameter>
+                  </sld:Fill>
+                </sld:Mark>
+              </sld:Graphic>
+            </sld:PointSymbolizer>
+          </sld:Rule>
+          <sld:Rule>
+            <ogc:Filter>
+              <ogc:PropertyIsGreaterThanOrEqualTo>
+                <ogc:PropertyName>myNumber</ogc:PropertyName>
+                <ogc:Literal>0</ogc:Literal>
+              </ogc:PropertyIsGreaterThanOrEqualTo>
+            </ogc:Filter>
+            <sld:PointSymbolizer>
+              <sld:Graphic>
+                <sld:Mark>
+                  <sld:Fill>
+                    <sld:CssParameter name="fill">#F441B8</sld:CssParameter>
+                  </sld:Fill>
+                </sld:Mark>
+              </sld:Graphic>
+            </sld:PointSymbolizer>
+          </sld:Rule>
+          <sld:Rule>
+            <ogc:Filter>
+              <ogc:PropertyIsGreaterThanOrEqualTo>
+                <ogc:PropertyName>myNumber</ogc:PropertyName>
+                <ogc:Literal>0.10000</ogc:Literal>
+              </ogc:PropertyIsGreaterThanOrEqualTo>
+            </ogc:Filter>
+            <sld:PointSymbolizer>
+              <sld:Graphic>
+                <sld:Mark>
+                  <sld:Fill>
+                    <sld:CssParameter name="fill">#ff0000</sld:CssParameter>
+                  </sld:Fill>
+                </sld:Mark>
+              </sld:Graphic>
+            </sld:PointSymbolizer>
+          </sld:Rule>
+          <sld:Rule>
+            <ogc:Filter>
+              <ogc:PropertyIsGreaterThanOrEqualTo>
+                <ogc:PropertyName>myNumber</ogc:PropertyName>
+                <ogc:Literal>5.1</ogc:Literal>
+              </ogc:PropertyIsGreaterThanOrEqualTo>
+            </ogc:Filter>
+            <sld:PointSymbolizer>
+              <sld:Graphic>
+                <sld:Mark>
+                  <sld:Fill>
+                    <sld:CssParameter name="fill">#F49842</sld:CssParameter>
+                  </sld:Fill>
+                </sld:Mark>
+              </sld:Graphic>
+            </sld:PointSymbolizer>
+          </sld:Rule>
+          <sld:Rule>
+            <ogc:Filter>
+              <ogc:PropertyIsGreaterThanOrEqualTo>
+                <ogc:PropertyName>myNumber</ogc:PropertyName>
+                <ogc:Literal>6.00</ogc:Literal>
+              </ogc:PropertyIsGreaterThanOrEqualTo>
+            </ogc:Filter>
+            <sld:PointSymbolizer>
+              <sld:Graphic>
+                <sld:Mark>
+                  <sld:Fill>
+                    <sld:CssParameter name="fill">#F4F141</sld:CssParameter>
+                  </sld:Fill>
+                </sld:Mark>
+              </sld:Graphic>
+            </sld:PointSymbolizer>
+          </sld:Rule>
+          <sld:Rule>
+            <TextSymbolizer>
+              <Label>
+                <ogc:PropertyName>myNumber</ogc:PropertyName>
+              </Label>
+              <Font>
+                <CssParameter name="font-size">12</CssParameter>
+                <CssParameter name="font-family">DejaVu Sans</CssParameter>
+              </Font>
+              <LabelPlacement>
+                <PointPlacement>
+                  <AnchorPoint>
+                    <AnchorPointX>0</AnchorPointX>
+                    <AnchorPointY>0.7</AnchorPointY>
+                  </AnchorPoint>
+                  <Displacement>
+                    <DisplacementX>15</DisplacementX>
+                    <DisplacementY>0</DisplacementY>
+                  </Displacement>
+                </PointPlacement>
+              </LabelPlacement>
+              <Fill>
+                <CssParameter name="fill">#333333</CssParameter>
+              </Fill>
+            </TextSymbolizer>
+          </sld:Rule>
+        </sld:FeatureTypeStyle>
+      </sld:UserStyle>
+    </sld:UserLayer>
+  </sld:StyledLayerDescriptor>
+  <gml:BoundingBox srsName="EPSG#3857">
+    <gml:coordinates>-100,-100 100,100</gml:coordinates>
+  </gml:BoundingBox>
+  <ows:Output>
+    <ows:Format>image/png</ows:Format>
+    <ows:Transparent>true</ows:Transparent>
+    <ows:BGColor>0xFFFFFF</ows:BGColor>
+    <ows:Size>
+      <ows:Width>200</ows:Width>
+      <ows:Height>200</ows:Height>
+    </ows:Size>
+  </ows:Output>
+  <ows:Exceptions>application/vnd.ogc.se_xml</ows:Exceptions>
+</ows:GetMap>
+</textarea>
+<script src="demo.js"></script>
+</body>
+</html>

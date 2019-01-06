@@ -1,0 +1,74 @@
+<html>
+<body>
+<h2>Simple Donut Polygon</h2>
+<img id="img-preview" src="" style="border: solid 1px #999" /><br>
+<textarea id="ta-sld" style="width:100%; height: 600px">
+<ows:GetMap xmlns:ows="http://www.opengis.net/ows" xmlns:gml="http://www.opengis.net/gml" xmlns:ogc="http://www.opengis.net/ogc" version="1.1.1" service="WMS">
+  <sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" version="1.0.0">
+    <sld:UserLayer>
+      <sld:Name>inline</sld:Name>
+      <sld:InlineFeature>
+        <feature>
+          <geometryProperty>
+            <gml:Polygon  srsName="EPSG#3857">
+              <gml:outerBoundaryIs>
+                  <gml:LinearRing>
+                      <gml:coordinates>-80,-80  -80,80  80,80  80,-80  -80,-80</gml:coordinates>
+                  </gml:LinearRing>
+              </gml:outerBoundaryIs>
+              <gml:innerBoundaryIs>
+                  <gml:LinearRing>
+                      <!-- This hole is clockwise -->
+                      <gml:coordinates>-60,10  -60,60  -10,60  -10,10  -60,10</gml:coordinates>
+                  </gml:LinearRing>
+              </gml:innerBoundaryIs>
+              <gml:innerBoundaryIs>
+                  <gml:LinearRing>
+                      <!-- This hole is counter-clockwise -->
+                      <gml:coordinates>10,-60  60,-60  60,-10  10,-10  10,-60</gml:coordinates>
+                  </gml:LinearRing>
+              </gml:innerBoundaryIs>
+            </gml:Polygon>
+          </geometryProperty>
+        </feature>
+      </sld:InlineFeature>
+      <sld:UserStyle>
+        <sld:FeatureTypeStyle>
+          <sld:Rule>
+            <sld:PolygonSymbolizer>
+              <sld:Fill>
+                <sld:CssParameter name="fill">#FF0000</sld:CssParameter>
+                <sld:CssParameter name="fill-opacity">0.5</sld:CssParameter>
+              </sld:Fill>
+              <sld:Stroke>
+                <sld:CssParameter name="stroke">#ff0000</sld:CssParameter>
+                <sld:CssParameter name="stroke-width">2</sld:CssParameter>
+                <sld:CssParameter name="stroke-opacity">1</sld:CssParameter>
+                <sld:CssParameter name="stroke-linejoin">mitre</sld:CssParameter>
+                <sld:CssParameter name="stroke-linecap">butt</sld:CssParameter>
+                <sld:CssParameter name="stroke-dashoffset">0</sld:CssParameter>
+              </sld:Stroke>
+            </sld:PolygonSymbolizer>
+          </sld:Rule>
+        </sld:FeatureTypeStyle>
+      </sld:UserStyle>
+    </sld:UserLayer>
+  </sld:StyledLayerDescriptor>
+  <gml:BoundingBox srsName="EPSG#3857">
+    <gml:coordinates>-100,-100 100,100</gml:coordinates>
+  </gml:BoundingBox>
+  <ows:Output>
+    <ows:Format>image/png</ows:Format>
+    <ows:Transparent>true</ows:Transparent>
+    <ows:BGColor>0xFFFFFF</ows:BGColor>
+    <ows:Size>
+      <ows:Width>200</ows:Width>
+      <ows:Height>200</ows:Height>
+    </ows:Size>
+  </ows:Output>
+  <ows:Exceptions>application/vnd.ogc.se_xml</ows:Exceptions>
+</ows:GetMap>
+</textarea>
+<script src="demo.js"></script>
+</body>
+</html>
